@@ -1,0 +1,22 @@
+<div id="container" class="container d-flex flex-column justify-content-center align-self-center mt-5">
+    <form #formBrand="ngForm">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-3">Save Brand Form</h2>
+                <form-input formDivClass="mb-3" formLabelFor="brand" formLabelClass="card-text" formLabelValue="Brand Name"
+                    formInputType="text" formInputId="brand" formInputName="brand" [formInputRequired]="true"
+                    [(formInputNgModel)]="insertBrandDtoReq.brandName" formInputPlaceholder="brand name"
+                    [formInputMin]="1" [formInputMax]="30">
+                </form-input>
+                <div class="row">
+                    <div class="col-12 col-sm-3">
+                        <app-button (btnClickEvent)="save(formBrand.form.valid)" btnClass="btn-primary card-link form-control mb-2" btnLabel="SAVE" [btnDisable]="formBrand.form.invalid"></app-button>
+                    </div>
+                    <div class="col-12 col-sm-3">
+                        <app-button btnLink="/brand/list" btnClass="btn-danger card-link form-control" btnLabel="CANCEL"></app-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

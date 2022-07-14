@@ -1,0 +1,49 @@
+<div class="container mt-3">
+    <div class="mb-3">
+        <h1 class="text-center text-secondary">Save Checkout Form</h1>
+    </div>
+    <form #formCheckout="ngForm">
+        <div class="row">                
+            <div class="col-12 col-sm-6">
+                <form-select formDivClass="mb-3" formLabelFor="asset" formLabelValue="Asset Name" 
+                    formSelectId="asset" formSelectName="asset" [formOptionData]="assets" formOptionName="assetName"
+                    [(formSelectNgModel)]="insertCheckoutDtoReq.assetId">
+                </form-select>
+            </div>
+            <div class="col-12 col-sm-6">
+                <form-select formDivClass="mb-3" formLabelFor="employee" formLabelValue="Employee Name" 
+                    [formLabelRequired]="false" formSelectId="employee" formSelectName="employee" 
+                    [formOptionData]="employees" formOptionName="employeeName" [formSelectRequired]="false"
+                    [(formSelectNgModel)]="insertCheckoutDtoReq.employeeId">
+                </form-select>
+            </div>
+            <div class="col-12 col-sm-6">
+                <form-select formDivClass="mb-3" formLabelFor="other-asset" formLabelValue="Other Asset Name" 
+                    [formLabelRequired]="false" formSelectId="other-asset" formSelectName="other-asset" 
+                    [formOptionData]="assets" formOptionName="assetName" [formSelectRequired]="false"
+                    [(formSelectNgModel)]="insertCheckoutDtoReq.otherAssetId">
+                </form-select>
+            </div>
+            <div class="col-12 col-sm-6">
+                <form-textarea formDivClass="mb-3" formLabelFor="place" formLabelValue="Place Name" [formLabelRequired]="false"
+                    formTextareaName="place" formTextareaId="place" [formTextareaCols]="30" [formTextareaRows]="3"
+                    [(formTextareaNgModel)]="insertCheckoutDtoReq.place" [formTextareaRequired]="false">
+                </form-textarea>
+            </div>
+            <div class="col-12 col-sm-6">
+                <form-input formDivClass="mb-3" formLabelFor="expired" formLabelClass="card-text" 
+                    formLabelValue="Expired Date" [formLabelRequired]="false"
+                    formInputType="date" formInputId="expired" formInputName="expired" 
+                    [formInputRequired]="false" [(formInputNgModel)]="insertCheckoutDtoReq.expired">
+                </form-input>
+            </div>
+            <div class="col-12 col-sm-6"></div>
+            <div class="col-12 col-sm-3">
+                <app-button (btnClickEvent)="save(formCheckout.form.valid)" btnClass="btn-primary form-control" btnLabel="SAVE" [btnDisable]="formCheckout.form.invalid"></app-button>
+            </div>
+            <div class="col-12 col-sm-3">
+                <app-button btnLink="/checkout/list" btnClass="btn-danger form-control mt-3 mt-sm-0" btnLabel="CANCEL"></app-button>
+            </div>
+        </div>
+    </form>
+</div>

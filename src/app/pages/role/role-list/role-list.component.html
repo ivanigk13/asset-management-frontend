@@ -1,0 +1,50 @@
+<div class="mt-3 sm-3">
+    <h1 class="text-center text-secondary">Role List</h1>
+</div>
+
+<div class="container">
+    <div class="mt-3 sm-3">
+        <app-button btnLink="/role/new" btnClass="btn-success" btnLabel="CREATE ROLE"></app-button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered mt-3">
+            <tr>
+                <th>No</th>
+                <th>Role Code</th>
+                <th>Role Name</th>
+                <th>Is Active</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let role of roles$ | async; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{role.roleCode}}</td>
+                <td>{{role.roleName}}</td>
+                <td>{{role.isActive}}</td>
+                <td>
+                    <div class="d-flex flex-row gap-2">
+                        <app-button (btnClickEvent)="update(role.id)" btnLink="/role/new" btnClass="btn-sm btn-primary" btnLabel="EDIT"></app-button>
+                        <button (click)="delete(role.id)" type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete">DELETE</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Deletion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure want to delete?
+        </div>
+        <div class="modal-footer">
+            <button (click)="doDelete()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Yes</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container mt-3">
+    <div class="mb-3">
+        <h1 class="text-center text-secondary">Save Employee Form</h1>
+    </div>
+    <form #formEmployee="ngForm">
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <form-select formDivClass="mb-3" formLabelFor="username" formLabelValue="Username" 
+                    formSelectId="usename" formSelectName="username"
+                    [(formSelectNgModel)]="insertEmployeeDtoReq.userId"
+                    [formOptionData]="users" formOptionName="username">
+                </form-select>
+            </div>
+            <div class="col-12 col-sm-6">
+                <form-select formDivClass="mb-3" formLabelFor="company" formLabelValue="Company Name" 
+                    formSelectId="company" formSelectName="company"
+                    [(formSelectNgModel)]="insertEmployeeDtoReq.companyId"
+                    [formOptionData]="companies" formOptionName="companyName">
+                </form-select>
+            </div>
+            <div class="col-12 col-sm-6">
+                <form-input formDivClass="mb-3" formLabelFor="nip" formLabelClass="card-text" formLabelValue="NIP" 
+                    formInputType="text" formInputId="nip" formInputName="nip"
+                    [(formInputNgModel)]="insertEmployeeDtoReq.nip" formInputPlaceholder="nip" 
+                    [formInputMin]="1" [formInputMax]="6">
+                </form-input>
+            </div>                
+            <div class="col-12 col-sm-6">
+                <form-input formDivClass="mb-3" formLabelFor="employee-name" formLabelClass="card-text" formLabelValue="Employee Name" 
+                    formInputType="text" formInputId="employee-name" formInputName="employee-name"
+                    [(formInputNgModel)]="insertEmployeeDtoReq.employeeName" formInputPlaceholder="employee name" 
+                    [formInputMin]="1" [formInputMax]="30">
+                </form-input>
+            </div>
+            <div class="col-12 col-sm-3">
+                <app-button (btnClickEvent)="save(formEmployee.form.valid)" btnClass="btn-primary form-control" btnLabel="SAVE" [btnDisable]="formEmployee.form.invalid"></app-button>
+            </div>
+            <div class="col-12 col-sm-3">
+                <app-button btnLink="/employee/list" btnClass="btn-danger form-control mt-2 mt-sm-0" btnLabel="CANCEL"></app-button>
+            </div>
+        </div>
+    </form>
+</div>

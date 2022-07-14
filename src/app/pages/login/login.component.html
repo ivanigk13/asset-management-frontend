@@ -1,0 +1,36 @@
+{{loginDtoReq|json}}
+<div id="container" class="container d-flex flex-column justify-content-center align-self-center">
+    <form #formLogin="ngForm" (ngSubmit)="onLogin(formLogin.form.valid)">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-3">Login Form</h2>
+                <div class="row">
+                    <div class="col-12 col-sm-6 text-center">
+                        <img src="../../../assets/image/assetm.png" alt="logo" width="150" height="150">        
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <form-input formDivClass="mb-3" formLabelFor="email" formLabelClass="card-text" formLabelValue="Email"
+                    formInputType="email" [(formInputNgModel)]="loginDtoReq.email" formInputId="email" 
+                    formInputPlaceholder="name@example.com" formInputName="email" [formInputRequired]="true"
+                    [formInputMin]="1" [formInputMax]="100">
+                </form-input>
+                <form-input formDivClass="mb-3" formLabelFor="password" formLabelClass="card-text" formLabelValue="Password"
+                    formInputType="password" formInputName="password" [(formInputNgModel)]="loginDtoReq.password" 
+                    formInputId="password" [formInputRequired]="true" [formInputMin]="8" [formInputMax]="100">
+                </form-input>
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <app-button btnType="submit" btnId="login" btnClass="btn-primary card-link form-control mb-2" btnLabel="LOGIN" [btnDisable]="formLogin.form.invalid"></app-button>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <app-button btnLink="" btnId="forgot" btnClass="btn-secondary card-link form-control" btnLabel="FORGOT PASSWORD"></app-button>
+                    </div>
+                    <div class="col-12 col-sm-"></div>
+                </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </form>
+</div>

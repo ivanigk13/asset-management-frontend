@@ -1,0 +1,22 @@
+<div id="container" class="container d-flex flex-column justify-content-center align-self-center mt-5">
+    <form #formRole="ngForm">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-3">Update Role Form</h2>
+                <form-input formDivClass="mb-3" formLabelFor="name" formLabelClass="card-text" formLabelValue="Role Name" 
+                    formInputType="text" formInputId="name" formInputName="name" 
+                    [(formInputNgModel)]="updateRoleDtoReq.roleName" formInputPlaceholder="role name" 
+                    [formInputRequired]="true" [formInputMin]="1" [formInputMax]="12">
+                </form-input>
+                <div class="row">
+                    <div class="col-12 col-sm-3">
+                        <app-button (btnClickEvent)="update(formRole.form.valid)" btnClass="btn-primary card-link form-control mb-2" btnLabel="SAVE" [btnDisable]="formRole.form.invalid"></app-button>
+                    </div>
+                    <div class="col-12 col-sm-3">
+                        <app-button btnLink="/role/list" btnClass="btn-danger card-link form-control" btnLabel="CANCEL"></app-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

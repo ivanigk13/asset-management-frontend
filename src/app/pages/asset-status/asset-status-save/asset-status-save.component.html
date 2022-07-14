@@ -1,0 +1,32 @@
+<div id="container" class="container d-flex flex-column justify-content-center align-self-center mt-5">
+    <form #formAssetStatus="ngForm">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-3">Save Asset Status Form</h2>
+                <form-input formDivClass="mb-3" formLabelFor="code" formLabelClass="card-text" formLabelValue="Asset Status Code" 
+                    formInputType="text" formInputId="code" formInputName="code" 
+                    [(formInputNgModel)]="insertAssetStatusDtoReq.statusCode" formInputPlaceholder="asset status code" 
+                    [formInputRequired]="true" [formInputMin]="1" [formInputMax]="10">
+                </form-input>
+                <form-input formDivClass="mb-3" formLabelFor="name" formLabelClass="card-text" formLabelValue="Asset Status Name" 
+                    formInputType="text" formInputId="name" formInputName="name" 
+                    [(formInputNgModel)]="insertAssetStatusDtoReq.statusName" formInputPlaceholder="asset status name" 
+                    [formInputRequired]="true" [formInputMin]="1" [formInputMax]="15">
+                </form-input>
+                <form-input formDivClass="mb-3" formLabelFor="alt" formLabelClass="card-text" formLabelValue="Asset Alternative Name" 
+                    formInputType="alt" formInputId="alt" formInputName="alt" 
+                    [(formInputNgModel)]="insertAssetStatusDtoReq.altName" formInputPlaceholder="asset alternativename" 
+                    [formInputRequired]="true" [formInputMin]="1" [formInputMax]="16">
+                </form-input>
+                <div class="row">
+                    <div class="col-12 col-sm-3">
+                        <app-button (btnClickEvent)="save(formAssetStatus.form.valid)" btnClass="btn-primary card-link form-control mb-2" btnLabel="SAVE" [btnDisable]="formAssetStatus.form.invalid"></app-button>
+                    </div>
+                    <div class="col-12 col-sm-3">
+                        <app-button btnLink="/asset-status/list" btnClass="btn-danger card-link form-control" btnLabel="CANCEL"></app-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

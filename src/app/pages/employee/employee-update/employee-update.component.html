@@ -1,0 +1,22 @@
+<div id="container" class="container d-flex flex-column justify-content-center align-self-center mt-5">
+    <form #formEmployee="ngForm" (ngSubmit)="update(formEmployee.form.valid)">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-3">Update Employee Form</h2>
+                <form-input formDivClass="mb-3" formLabelFor="employee-name" formLabelClass="card-text" formLabelValue="Employee Name" 
+                    formInputType="text" formInputId="employee-name" formInputName="employee-name"
+                    [(formInputNgModel)]="updateEmployeeDtoReq.employeeName" formInputPlaceholder="employee name" 
+                    [formInputMin]="1" [formInputMax]="30">
+                </form-input>
+                <div class="row">
+                    <div class="col-12 col-sm-3">
+                        <app-button btnType="submit" btnClass="btn-primary form-control" btnLabel="SAVE" [btnDisable]="formEmployee.form.invalid"></app-button>
+                    </div>
+                    <div class="col-12 col-sm-3">
+                        <app-button btnLink="/employee/list" btnClass="btn-danger form-control mt-2 mt-sm-0" btnLabel="CANCEL"></app-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,85 @@
+<div class="container mt-3 shadow">
+    <div class="mb-3">
+        <h1 class="text-center text-secondary">Save Asset Form</h1>
+    </div>
+
+    <form class="mb-3" #formAsset="ngForm" (ngSubmit)="update(formAsset.form.valid)">
+        <div class="row">                
+            <div class="col-12 col-sm-6">
+                <form-select formDivClass="mb-3" formLabelFor="company" formLabelValue="Company Name" 
+                    formSelectId="company" formSelectName="company" [formOptionData]="companies" formOptionName="companyName"
+                    [(formSelectNgModel)]="updateAssetDtoReq.companyId" [formSelectRequired]="true">
+                </form-select>
+            </div>
+            <div class="col-12 col-sm-6">
+                <form-select formDivClass="mb-3" formLabelFor="asset-type" formLabelValue="Asset Type Name" 
+                    formSelectId="asset-type" formSelectName="asset-type" [formOptionData]="assetTypes" 
+                    formOptionName="typeName" [(formSelectNgModel)]="updateAssetDtoReq.assetTypeId" 
+                    [formSelectRequired]="true">
+                </form-select>
+            </div>
+            <div class="col-12 col-sm-6">
+                <form-select formDivClass="mb-3" formLabelFor="asset-status" formLabelValue="Asset Status Name" 
+                    formSelectId="asset-status" formSelectName="asset-status" [formOptionData]="assetStatuses" 
+                    formOptionName="statusName" [(formSelectNgModel)]="updateAssetDtoReq.assetStatusId" 
+                    [formSelectRequired]="true">
+                </form-select>
+            </div>
+            <div class="col-12 col-sm-6">
+                <form-select formDivClass="mb-3" formLabelFor="brand" formLabelValue="Brand Name" 
+                    formSelectId="brand" formSelectName="brand" [formOptionData]="brands" formOptionName="brandName"
+                    [(formSelectNgModel)]="updateAssetDtoReq.brandId" [formSelectRequired]="true">
+                </form-select>
+            </div>
+            <div class="col-12 col-sm-6">
+                <label for="file" class="form-label card-text">Upload File</label>
+                <input type="file" name="file" id="file" class="form-control" (change)="changeFile($event)">
+                <!-- <form-input formDivClass="mb-3" formLabelFor="file" formLabelClass="card-text" formLabelValue="Upload Picture" 
+                    formInputType="file" formInputId="file" formInputName="file" 
+                    [(formInputNgModel)]="updateAssetDtoReq.fileId" [formInputRequired]="true">
+                </form-input> -->
+            </div>
+            
+            <div class="col-12 col-sm-6">
+                <form-input formDivClass="mb-3" formLabelFor="name" formLabelClass="card-text" formLabelValue="Asset Name" 
+                    formInputType="text" formInputId="name" formInputName="name" 
+                    [(formInputNgModel)]="updateAssetDtoReq.assetName" formInputPlaceholder="asset name" 
+                    [formInputRequired]="true" [formInputMin]="1" [formInputMax]="20">
+                </form-input>
+            </div>
+            <div class="col-12 col-sm-6">
+                <form-input formDivClass="mb-3" formLabelFor="serial" formLabelClass="card-text" formLabelValue="Serial" 
+                    formInputType="text" formInputId="serial" formInputName="serial" 
+                    [(formInputNgModel)]="updateAssetDtoReq.serial" formInputPlaceholder="serial" 
+                    [formInputRequired]="true" [formInputMin]="1" [formInputMax]="10">
+                </form-input>
+            </div>
+            <div class="col-12 col-sm-6">
+                <form-textarea formDivClass="mb-3" formLabelFor="description" formLabelValue="Asset Description"
+                    formTextareaName="description" formTextareaId="description" [formTextareaCols]="30" [formTextareaRows]="3"
+                    [(formTextareaNgModel)]="updateAssetDtoReq.assetDescription">
+                </form-textarea>
+            </div>
+            <div class="col-12 col-sm-6">
+                <form-input formDivClass="mb-3" formLabelFor="invoice" formLabelClass="card-text" 
+                    formLabelValue="Invoice" [formLabelRequired]="false"
+                    formInputType="text" formInputId="invoice" formInputName="invoice" [formInputRequired]="false"
+                    [(formInputNgModel)]="updateAssetDtoReq.invoice" formInputPlaceholder="invoice">
+                </form-input>
+            </div>
+            <div class="col-12 col-sm-6">
+                <form-input formDivClass="mb-3" formLabelFor="expired" formLabelClass="card-text" 
+                    formLabelValue="Expired Date" [formLabelRequired]="false"
+                    formInputType="date" formInputId="expired" formInputName="expired" 
+                    [formInputRequired]="false" [(formInputNgModel)]="updateAssetDtoReq.expired">
+                </form-input>
+            </div>
+            <div class="col-12 col-sm-3">
+                <app-button btnType="submit" btnClass="btn-primary form-control" btnLabel="SAVE" [btnDisable]="formAsset.form.invalid"></app-button>
+            </div>
+            <div class="col-12 col-sm-3 mb-3">
+                <app-button btnLink="/asset/list" btnClass="btn-danger form-control mt-3 mt-sm-0" btnLabel="CANCEL"></app-button>
+            </div>
+        </div>
+    </form>
+</div>

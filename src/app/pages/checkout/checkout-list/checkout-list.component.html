@@ -1,0 +1,29 @@
+<div class="mt-3 sm-3">
+    <h1 class="text-center text-secondary">Checkout List</h1>
+</div>
+
+<div class="container">
+    <div class="mt-3 sm-3">
+        <app-button btnLink="/checkout/new" btnClass="btn-success" btnLabel="CREATE CHECKOUT"></app-button>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered mt-3">
+            <tr>
+                <th>No</th>
+                <th>Asset</th>
+                <th>Employee</th>
+                <th>Other Asset</th>
+                <th>Place</th>
+                <th>Expired</th>
+            </tr>
+            <tr *ngFor="let checkout of checkouts; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{checkout.assetName}}</td>
+                <td>{{(checkout.employeeName == null) ? '-' : checkout.employeeName}}</td>
+                <td>{{(checkout.otherAssetName == null) ? '-' : checkout.otherAssetName}}</td>
+                <td>{{(checkout.place == null ? '-' : checkout.place)}}</td>
+                <td>{{(checkout.expired == null ? '-' : checkout.expired)}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

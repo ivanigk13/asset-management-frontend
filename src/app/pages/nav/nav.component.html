@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/home">Asset Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Transaction
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <li><a class="dropdown-item" routerLink="/checkout/list">Checkout</a></li>
+                        <li><a class="dropdown-item" routerLink="/checkout/expired">Expired Checkout</a></li>
+                        <li><a class="dropdown-item" routerLink="/checkout/uncheckin">Un-Checkin</a></li>
+                        <li><a class="dropdown-item" routerLink="/checkin/list">Checkin</a></li>                          
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Master
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                        <li><a class="dropdown-item" routerLink="/role/list">Role</a></li>
+                        <li><a class="dropdown-item" routerLink="/user/list">User</a></li>
+                        <li><a class="dropdown-item" routerLink="/employee/list">Employee</a></li>
+                        <li><a class="dropdown-item" routerLink="/company/list">Company</a></li>
+                        <li><a class="dropdown-item" routerLink="/brand/list">Brand</a></li>
+                        <li><a class="dropdown-item" routerLink="/asset-type/list">Asset Type</a></li>
+                        <li><a class="dropdown-item" routerLink="/asset-status/list">Asset Status</a></li>                            
+                        <li><a class="dropdown-item" routerLink="/asset/list">Asset</a></li>
+                        <li><a class="dropdown-item" routerLink="/asset/expired">Expired Asset</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" (click)="clearData()" aria-current="page" routerLink="/login">Logout</a>
+                </li>
+            </ul>            
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>

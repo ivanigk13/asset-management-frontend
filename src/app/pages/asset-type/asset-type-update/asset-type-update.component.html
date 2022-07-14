@@ -1,0 +1,22 @@
+<div id="container" class="container d-flex flex-column justify-content-center align-self-center mt-5">
+    <form #formAssetType="ngForm" (ngSubmit)="update(formAssetType.form.valid)">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-3">Save Asset Type Form</h2>
+                <form-input formDivClass="mb-3" formLabelFor="name" formLabelClass="card-text" formLabelValue="Asset Type Name" 
+                    formInputType="text" formInputId="name" formInputName="name" 
+                    [(formInputNgModel)]="updateAssetTypeDtoReq.typeName" formInputPlaceholder="asset type name" 
+                    [formInputRequired]="true" [formInputMin]="1" [formInputMax]="15">
+                </form-input>
+                <div class="row">
+                    <div class="col-12 col-sm-3">
+                        <app-button btnType="submit" btnClass="btn-primary card-link form-control mb-2" btnLabel="SAVE" [btnDisable]="formAssetType.form.invalid"></app-button>
+                    </div>
+                    <div class="col-12 col-sm-3">
+                        <app-button btnLink="/asset-type/list" btnClass="btn-danger card-link form-control" btnLabel="CANCEL"></app-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
